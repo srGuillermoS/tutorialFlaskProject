@@ -62,6 +62,7 @@ def inicio():
     for item, value in request.files.items():
         cad += f"\t{item}:{value}\n"
 
+
     return cad
 
 if __name__ == '__main__':
