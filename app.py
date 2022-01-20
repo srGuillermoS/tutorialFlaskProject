@@ -1,6 +1,6 @@
 from crypt import methods
 
-from flask import Flask
+from flask import Flask, render_template
 from flask import request
 from flask import url_for
 
@@ -23,9 +23,9 @@ def prueba2(id=None):
 
     return f"Hola Prueba2 {id}"
 
-@app.route("/")
-def index():
-    return f"Hola mundo <a href='{url_for('pagina2')}'>pincha aquí</a> "
+#@app.route("/")
+#def index():
+#    return f"Hola mundo <a href='{url_for('pagina2')}'>pincha aquí</a> "
 
 @app.route('/pagina2/')
 def pagina2():
@@ -64,6 +64,21 @@ def inicio():
 
 
     return cad
+
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+@app.route("/template1/")
+def template1():
+    return render_template("template1.html", nombre="Guillermo", apellido = "Sevilla")
+
+@app.route("/template2/")
+def template2():
+    data = {'Guillermo':1500, 'José':1000, 'María':1200, 'Ana':2000}
+    return render_template("template2.html", data = data)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>template2</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Sueldo</th>
+    </tr>
+{% for nombre,sueldo in data.items() %}
+    <tr>
+        <td>{{nombre}}</td>
+        {% if sueldo < 1300 %}
+            <td style="background: red">{{sueldo}}</td>
+        {% else %}
+            <td style="background: green">{{sueldo}}</td>
+        {% endif %}
+    </tr>
+{% endfor %}
+
+    </table>
+</body>
+</html>
